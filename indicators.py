@@ -108,7 +108,7 @@ def extract_sentences(username, input_csv, output_pdf, target_phrase_sections):
     print(f"Key phrase extraction report saved to {output_pdf_path}")
 
 
-if __name__ == "__main__":
+def main():
     # Define five different target phrase sections with sub-headings
 
     target_phrase_sections = [
@@ -240,11 +240,5 @@ if __name__ == "__main__":
     extract_sentences(target_username, "input.csv", target_username + "_ideologicalindicators_report.pdf",
                       target_phrase_sections)
 
-# Ask if the user wants to return to the launcher
-
-launcher = input('Do you want to return to the launcher? (y/n)')
-
-if launcher == 'y':
-    print('Restarting...')
-
-    exec(open("launcher.py").read())
+if __name__ == "__main__":
+    main()

@@ -1,6 +1,5 @@
 import asyncio
 import importlib
-from telethon.sync import TelegramClient
 from colorama import init, Fore, Style
 
 def print_logo():
@@ -37,6 +36,25 @@ def get_choice(options):
         else:
             return list(options.values())[choose]
 
+def load_and_run_module(choice):
+        try:
+            print(choice)
+            module = importlib.import_module(choice)
+            if choice in ('channels', 'channellist', 'userscraper', 'usermultiscraper', 'userdetails', 'urlscraper', 'recon', 'channelscraper'):
+                asyncio.run(module.main())
+            else:
+                module.main()
+
+            # Ask if the user wants to return to launcher
+            launcher = input('Do you want to return to the launcher? (y/n)')
+            if launcher.lower() == 'n':
+                return False
+
+        except ImportError:
+            print(f'Failed to load {choice}')
+
+        return True
+
 def main():
     options = {
         'Get user information': 'userdetails',
@@ -61,19 +79,8 @@ def main():
         print_logo()
 
         if choice := get_choice(options):
-
             print(f'Loading {choice}...')
-            try:
-                print(choice)
-                module = importlib.import_module(choice)
-                asyncio.run(module.main()) 
-
-                # Ask if the user wants to return to launcher
-                launcher = input('Do you want to return to the launcher? (y/n)')
-                if launcher.lower() == 'n':
-                    break
-
-            except ImportError:
-                print(f'Failed to load {choice}')
+            if not load_and_run_module(choice):
+                break
 
 main()
