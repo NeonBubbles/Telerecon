@@ -1,19 +1,11 @@
 import os
-
 import re
-
 import pandas as pd
-
 from openpyxl import Workbook
-
 from reportlab.lib.pagesizes import letter
-
 from reportlab.lib import colors
-
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
-
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-
 from reportlab.platypus import PageBreak
 
 

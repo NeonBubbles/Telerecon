@@ -88,7 +88,7 @@ async def main():
 
     if scrape_choice.lower() == "y":
         model = importlib.import_module("usermultiscraper")
-        await model.main(target_user)
+        await model.main(target_user, target_list_filename)
 
 if __name__ == '__main__':
     asyncio.run(main())

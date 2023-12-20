@@ -134,11 +134,11 @@ async def scrape_user_messages(channel_name, target_user, user_directory, downlo
             return [], []
 
 
-async def main(target_user=None):
+async def main(target_user=None, target_list_filename=None):
     print()
     if target_user is None:
         target_user = input(f"{Fore.CYAN}Please enter the target user's @username: {Style.RESET_ALL}")
-    target_list_filename = input(
+        target_list_filename = input(
         f"{Fore.CYAN}Please enter the filename of the target channel list (csv/txt): {Style.RESET_ALL}")
     download_media_option = input(f"{Fore.CYAN}Would you like to download the target's media (y/n)? {Style.RESET_ALL}")
     download_media = download_media_option.lower() == 'y'

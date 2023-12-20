@@ -7,7 +7,6 @@ from colorama import init, Fore, Style
 from details import apiID, apiHash, number
 
 # Initialize colorama for colored console output
-
 init(autoreset=True)
 
 
@@ -22,7 +21,6 @@ async def get_user_information(client, identifier, username):
         user = await client.get_entity(identifier)
 
         # Create a user-specific directory
-
         user_directory = os.path.join("Collection", username)
 
         if not os.path.exists(user_directory):
@@ -131,18 +129,15 @@ async def main():
     identifier = input(f"{Fore.CYAN}Enter target @username{Fore.RESET}: ")
 
     # Create a 'Collection' directory if it doesn't exist
-
     if not os.path.exists("Collection"):
         os.makedirs("Collection")
 
     async with TelegramClient('session_name', apiID, apiHash) as client:
 
         # Remove "@" symbol from the username if present
-
         username = identifier.replace('@', '')
 
         # Call the function with the modified username
-
         await get_user_information(client, identifier, username)
 
 
