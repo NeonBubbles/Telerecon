@@ -59,7 +59,7 @@ async def main():
             f"{Fore.CYAN}Please enter a target Telegram channel (e.g., https://t.me/{Fore.LIGHTYELLOW_EX}your_channel{Style.RESET_ALL}):\n")
         print(f'You entered "{Fore.LIGHTYELLOW_EX}{channel_name}{Style.RESET_ALL}"')
         answer = input('Is this correct? (y/n)')
-        if answer != 'y':
+        if answer.lower() != 'y':
             return
 
         output_directory = f"Collection/{channel_name}"

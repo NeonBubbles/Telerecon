@@ -25,7 +25,7 @@ async def main():
                 channel_name = input("Please enter a Telegram channel name:\n")
                 print(f'You entered "{channel_name}"')
                 answer = input('Is this correct? (y/n)')
-                if answer == 'y':
+                if answer.lower() == 'y':
                     print('Scraping forwards from', channel_name, '...')
                     break
             except Exception:
@@ -72,7 +72,7 @@ async def main():
         print('Forwards scraped successfully.')
 
         again = input('Do you want to scrape more channels? (y/n)')
-        if again == 'y':
+        if again.lower() == 'y':
             print('Restarting...')
             
         else:
