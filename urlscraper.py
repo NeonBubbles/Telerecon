@@ -31,7 +31,7 @@ async def main():
                 print(f'You entered "{channel_name}"')
                 answer = input('Is this correct? (y/n) ')
                 if answer.lower() == 'y':
-                    channel_name = channel_name.replace('@', '')
+                    channel_name = channel_name.strip('@').strip()
                     print(f'Scraping URLs from {channel_name}...')
                     break
             except Exception:

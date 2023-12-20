@@ -56,8 +56,9 @@ async def scrape_channel_content(channel_name):
 async def main():
     try:
         channel_name = input(
-            f"{Fore.CYAN}Please enter a target Telegram channel (e.g., https://t.me/{Fore.LIGHTYELLOW_EX}your_channel{Style.RESET_ALL}):\n")
+            f"{Fore.CYAN}Please enter a target Telegram channel (e.g., {Fore.LIGHTYELLOW_EX}@your_channel{Style.RESET_ALL}):\n")
         print(f'You entered "{Fore.LIGHTYELLOW_EX}{channel_name}{Style.RESET_ALL}"')
+        channel_name = channel_name.strip('@').strip()
         answer = input('Is this correct? (y/n)')
         if answer.lower() != 'y':
             return
