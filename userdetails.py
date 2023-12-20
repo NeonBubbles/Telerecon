@@ -161,5 +161,4 @@ async def main():
         os.system('python3 launcher.py')
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+

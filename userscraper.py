@@ -173,13 +173,5 @@ async def main():
     except Exception as e:
         print(f"{Fore.RED}An error occurred while saving network data to CSV: {e}{Style.RESET_ALL}")
 
-    # Ask if the user wants to return to launcher
-    launcher = input('Do you want to return to the launcher? (y/n)')
-
-    if launcher == 'y':
-        print('Restarting...')
-        exec(open("launcher.py").read())
 
 
-if __name__ == '__main__':
-    asyncio.run(main())
